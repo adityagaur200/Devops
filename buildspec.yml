@@ -1,15 +1,16 @@
-version :0.0
+version: 0.2
 
 phases:
   install:
     commands:
       - echo Installing NGINX
-      - sudo apt-get update
-      - sudo apt-get install nginx -y
+      - apt-get update -y
+      - apt-get install -y nginx
   build:
     commands:
+      - echo Copying files to NGINX root
       - cp index.html /var/www/html
-    
+
 artifacts:
   files:
-    "**/*"
+    - '**/*'
